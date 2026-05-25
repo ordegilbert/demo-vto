@@ -214,11 +214,11 @@ export default function TryOnPage() {
         {mode === "tryon" && (
           <div className="flex-1 overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
             <div className="bg-white w-full px-4">
-              <button className="mt-12 mb-2 flex items-center text-black text-center">
+              <button className="mt-6 mb-4 flex items-center text-black text-center">
                 <Link href="/product">
-                  <ArrowLeft />
+                  <ArrowBack sx={{ fontSize: 24 }} />
                 </Link>
-                <p className="ml-2 text-xl font-semibold">Virtual Try-On</p>
+                <p className="ml-4 text-[18px] font-semibold">Virtual Try-On</p>
               </button>
             </div>
             <div className="relative w-full aspect-[3/4] max-h-[60vh] bg-slate-600 overflow-hidden">
@@ -243,63 +243,62 @@ export default function TryOnPage() {
               <div className="absolute flex flex-col h-full inset-0 z-20 pointer-events-none justify-between ">
                 <div className="w-full flex justify-between p-4 pointer-events-auto"></div>
 
-                <div className="w-full flex justify-between p-4 gap-2 pointer-events-auto text-black">
+                <div className="w-full flex justify-between p-4 gap-3 pointer-events-auto text-black">
                   <button
-                    className="bg-branddef text-brandter2 flex items-center justify-center gap-2 flex-1 px-3 py-2 rounded w-full cursor-pointer"
+                    className="bg-[#FDEDEA] text-[#EE4D2D] flex items-center justify-center gap-2 flex-1 px-3 py-2.5 rounded-lg w-full cursor-pointer shadow-sm"
                     onClick={() => {
                       setImageSrc(null);
                       setMode("camera");
                     }}
                   >
-                    <Camera size={16} />{" "}
-                    <p className="text-[14px]">Retake Photo</p>
+                    <CameraAltOutlined sx={{ fontSize: 18 }} />{" "}
+                    <p className="text-[13px] font-medium">Retake Photo</p>
                   </button>
                   <button
-                    className="min-w-12 flex items-center justify-center px-1 py-1 rounded bg-white text-black"
+                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-black shadow-sm"
                     onClick={undo}
                   >
-                    <Back size={16} />
+                    <Undo sx={{ fontSize: 20 }} />
                   </button>
                   <button
-                    className="min-w-12 flex items-center justify-center px-1 py-1 rounded bg-white text-black"
+                    className="w-10 h-10 flex items-center justify-center rounded-lg bg-white text-black shadow-sm"
                     onClick={openClearDialog}
                   >
-                    <Refresh size={16} />
+                    <Loop sx={{ fontSize: 20 }} />
                   </button>
                 </div>
               </div>
             </div>
 
-            <div className="w-full bg-gray-100 rounded-lg p-4 flex items-center justify-center text-center mt-0.5">
-              <p className="text-gray-800 text-sm">
-                Waktunya bereksperimen! Pilih warna yang kamu suka, lalu swipe
-                di foto kamu!
+            <div className="mx-4 mt-3 bg-[#F5F5F5] rounded-lg p-3 flex items-center justify-center text-center">
+              <p className="text-gray-600 text-[12px] leading-relaxed">
+                Waktunya bereksperimen! Pilih warna yang kamu suka, lalu swipe di foto kamu!
               </p>
             </div>
 
             <div className="w-full bg-white py-3 px-4">
-              <div className="w-full flex gap-2 mb-2">
-                <div className="bg-[#F2B5A5] text-brandqua px-2 py-0.5 rounded-md text-[11px]">
-                  Mall | <strong>ORI</strong>
+              <div className="w-full flex gap-2 mb-1.5">
+                <div className="bg-[#F2B5A5] text-[#642013] px-1.5 py-0.5 rounded-[4px] text-[10px] font-medium">
+                  Mall | <span className="font-bold">ORI</span>
                 </div>
-                <div className="bg-[#F2B5A5] text-brandqua px-2 py-0.5 rounded-md text-[11px]">
+                <div className="bg-[#F2B5A5] text-[#642013] px-1.5 py-0.5 rounded-[4px] text-[10px] font-medium">
                   NEW PRODUCT
                 </div>
               </div>
-              <div className="pr-8 mb-4">
-                <p className="text-[16px]">
+              <div className="pr-4 mb-3">
+                <p className="text-[15px] text-gray-800 font-medium leading-snug">
                   Lip Stain Tint - 4gr (Pigmented & Transfer Resistant)
                 </p>
               </div>
 
-              <p className="text-[11px] text-gray-600 mt-4">
+              <p className="text-[11px] text-gray-500 mt-2 mb-1.5">
                 {selectedShade.label}
               </p>
-              <div className="w-full h-12 flex gap-4 mt-1 mb-6">
+              <div className="w-full h-12 flex gap-3 mb-6">
                 {shades.map((shade, index) => (
                   <div
                     key={index}
-                    className={`relative h-full w-12 aspect-square overflow-hidden bg-slate-700 rounded-xl cursor-pointer ${selectedShade.name === shade.name ? 'border-2 border-brandter2' : ''}`}
+                    className={`relative h-full w-12 aspect-square overflow-hidden rounded-lg cursor-pointer ${selectedShade.name === shade.name ? 'border-2 border-[#EE4D2D]' : 'border border-gray-200'}`}
                     onClick={() => {
                       setSelectedShade(shade);
                       setSnackbarMessage(`${shade.label} Applied!`);
@@ -319,39 +318,37 @@ export default function TryOnPage() {
 
             <div
               className="
-                  fixed bottom-0 left-1/2 -translate-x-1/2
-                  h-28
-                  w-full max-w-md
+                  fixed bottom-0 left-1/2 -translate-x-1/2 z-50
+                  h-20
+                  w-full max-w-[450px]
                   bg-white
-                  px-4 py-5
-                  flex items-center gap-3
+                  px-4 py-2
+                  flex items-center gap-2
                   pb-[env(safe-area-inset-bottom)]
                 "
             >
-              <button className="h-12 px-4 py-3 rounded-lg bg-[#F3F4F6] text-brandter2">
-                <Heart size={16} />
+              <button className="h-11 w-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-[#F3F4F6] text-[#EE4D2D]">
+                <FavoriteBorder sx={{ fontSize: 20 }} />
               </button>
 
               <button
-                className="h-12 flex-1 py-3 rounded-lg bg-[#F3F4F6] text-brandter2"
+                className="h-11 flex-1 rounded-lg bg-[#F3F4F6] text-[#EE4D2D]"
                 onClick={() => setCartPopupOpen(true)}
               >
-                <div className="flex items-center justify-center gap-2 w-full h-full">
-                  <ShoppingCart size={18} />{" "}
-                  <p className="text-[14px] font-medium">Add to Cart</p>
+                <div className="flex items-center justify-center gap-1.5 w-full h-full">
+                  <ShoppingCartOutlined sx={{ fontSize: 18 }} />{" "}
+                  <p className="text-[13px] font-medium">Add to Cart</p>
                 </div>
               </button>
 
-              <button className="h-12 flex-1 py-3 rounded-lg bg-[#F05A3A] text-white">
-                <div className="flex items-center justify-center gap-2">
-                  <Link
-                    href={"/checkout"}
-                    className="flex items-center justify-center gap-2 w-full h-full"
-                  >
-                    <ShoppingBag size={18} />{" "}
-                    <p className="text-[14px] font-medium">Buy Now</p>
-                  </Link>
-                </div>
+              <button className="h-11 flex-1 rounded-lg bg-[#EE4D2D] text-white">
+                <Link
+                  href={"/checkout"}
+                  className="flex items-center justify-center gap-1.5 w-full h-full"
+                >
+                  <ShoppingBagOutlined sx={{ fontSize: 18 }} />{" "}
+                  <p className="text-[13px] font-medium">Buy Now</p>
+                </Link>
               </button>
             </div>
 
@@ -359,8 +356,8 @@ export default function TryOnPage() {
               open={snackbarOpen}
               autoHideDuration={3000}
               onClose={() => setSnackbarOpen(false)}
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-              sx={{ bottom: { xs: 120, sm: 120 }, width: '100%', px: 3 }}
+              anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+              sx={{ top: { xs: 100, sm: 100 }, width: '100%', px: 3 }}
             >
               <div className="bg-[#E8F3EE] border border-[#185C3A] text-[#185C3A] px-5 py-4 rounded-[14px] flex items-center justify-between w-full shadow-sm max-w-sm mx-auto">
                 <div className="flex items-center gap-4">

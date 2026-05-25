@@ -27,7 +27,7 @@ interface Shade {
 }
 
 const shades: Shade[] = [
-  { name: "12 Pulse", imgUrl: "12_Pulse_plain.png", color: "#BE786E" },
+  { name: "12 Pulse", imgUrl: "12_Pulse_Plain.png", color: "#BE786E" },
   { name: "Cream Puff", imgUrl: "Cream_Puff_Plain.png", color: "#AF4665" },
   { name: "Mellow Rose", imgUrl: "Mellow_Rose_Plain.png", color: "#E25450" },
   { name: "Your Majesty", imgUrl: "Your_Majesty_Plain.png", color: "#B54944" },
@@ -85,7 +85,7 @@ const Cart: CartType[] = [
 
 export default function CartPage() {
   return (
-    <div className="min-h-[100dvh] bg-white pb-28 p-8 text-sm">
+    <div className="min-h-[100dvh] bg-white pb-28 p-6 text-sm">
       <div className="h-12 flex justify-between mt-6">
         <div className="flex h-full gap-1">
           <Link href="/product" className="mt-1">
@@ -101,7 +101,7 @@ export default function CartPage() {
 
       <div className="w-full text-sm">
         {Cart.map((i, index) => (
-          <div key={index}>
+          <div key={index} className="bg-gray-50 mb-4 rounded-lg p-2">
             <div className="flex justify-between items-center mb-2">
               <div className="flex items-center">
                 <Checkbox sx={{ '&.Mui-checked': { color: '#EE4D2D' } }} />
@@ -175,7 +175,7 @@ export default function CartPage() {
                 </div>
                 <ChevronRight className="text-ter" />
               </div>
-              <div className="w-full flex items-center gap-2 my-4 justify-between">
+              <div className="w-full flex items-center gap-2 mt-4 justify-between">
                 <div className="flex gap-2">
                   <TruckTime size={28} color="#129E54" />
                   <p>
@@ -192,9 +192,9 @@ export default function CartPage() {
 
       <div
         className="
-          fixed bottom-0 left-1/2 -translate-x-1/2
+          fixed bottom-0 left-1/2 -translate-x-1/2 z-50
           h-24
-          w-full max-w-105
+          w-full max-w-[450px]
           bg-white
           py-3
           pb-[env(safe-area-inset-bottom)]

@@ -10,12 +10,22 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowLeft, Camera, EmptyWalletTime, Heart, Messages2, More, ShieldTick, ShoppingCart, Star1, TruckTime } from "iconsax-reactjs";
 
-const shades: string[] = [
-  "12_Pulse_Plain.png", "Cream_Puff_Plain.png", "Mellow_Rose_Plain.png", "Your_Majesty_Plain.png"
-]
+interface Shade {
+  name: string;
+  color: string;
+  label: string;
+}
+
+const shades: Shade[] = [
+  { name: "12_Pulse_Plain.png", color: "#BE786E", label: "12 Pulse" },
+  { name: "Cream_Puff_Plain.png", color: "#AF4665", label: "Cream Puff" },
+  { name: "Mellow_Rose_Plain.png", color: "#E25450", label: "Mellow Rose" },
+  { name: "Your_Majesty_Plain.png", color: "#B54944", label: "Your Majesty" },
+];
 
 export default function Home() {
-  const [currImage, setCurrImage] = useState<string>(shades[0]);
+  const [currImage, setCurrImage] = useState<string>(shades[0].name);
+  const [currShade, setCurrShade] = useState<Shade | null>(null);
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
 
   return (
@@ -67,16 +77,19 @@ export default function Home() {
           </div>
 
           <div className="w-full bg-white p-4">
-            <p className="text-sm text-gray-600">4 Shades Available</p>
+            <p className="text-sm text-gray-600">{currShade ? currShade.label : "4 Shades Available"}</p>
             <div className="w-full h-12 flex gap-4 mt-2 mb-2">
-              {shades.map((i, index) => (
+              {shades.map((shade, index) => (
                 <div
                   key={index}
-                  className="relative h-full w-12 aspect-sblack/30re overflow-hidden bg-slate-700 rounded-xl"
-                  onClick={() => setCurrImage(shades[index])}
+                  className={`relative h-full w-12 aspect-square overflow-hidden rounded-xl cursor-pointer ${currShade?.name === shade.name ? 'border-2 border-[#EE4D2D]' : ''}`}
+                  onClick={() => {
+                    setCurrShade(shade);
+                    setCurrImage(shade.name);
+                  }}
                 >
                   <Image
-                    src={`/images/${i}`}
+                    src={`/images/${shade.name}`}
                     alt=""
                     fill
                     className="object-cover"
@@ -173,9 +186,9 @@ export default function Home() {
 
             <div
               className="
-              fixed bottom-0 left-1/2 -translate-x-1/2
+              fixed bottom-0 left-1/2 -translate-x-1/2 z-50
               h-20
-              w-full max-w-md
+              w-full max-w-[450px]
               bg-white
               px-4 py-3
               flex items-start gap-3

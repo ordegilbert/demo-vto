@@ -7,11 +7,12 @@ import {
   LocalShipping,
   LocationOn,
   Remove,
+  CheckCircle,
 } from "@mui/icons-material";
 import Image from "next/image";
 import { Checkbox, Chip } from "@mui/material";
 import Link from "next/link";
-import { ArrowLeft, Ticket, TruckFast, TruckTime } from "iconsax-reactjs";
+import { ArrowLeft, Ticket, TruckFast, TruckTime, ArrangeHorizontal, EmptyWallet } from "iconsax-reactjs";
 
 interface Shade {
   name: string;
@@ -180,27 +181,109 @@ export default function CheckoutPage() {
             <p className="font-medium">Rp199.920</p>
           </div>
 
-          <div className="flex justify-between mt-12 mb-4">
+        </div>
+
+        <div className="bg-[#f0f0f0] -mx-4 px-4 py-4 mt-6">
+          <div className="bg-white rounded-xl p-4 flex justify-between items-center mb-4 shadow-sm">
             <div className="flex gap-2 items-center">
               <Ticket className="text-[#EE4D2D]" size={24} variant="Outline" />{" "}
               <p className="font-medium text-[15px]">Vouchers</p>
             </div>
             <div className="flex items-center gap-2">
               <div className="border border-[#EE4D2D] rounded flex items-center justify-center px-1.5 py-0.5">
-                <p className="text-[#EE4D2D] text-[11px]">-Rp2k</p>
+                <p className="text-[#EE4D2D] text-[12px]">-Rp2k</p>
               </div>
               <div className="border border-[#129E54] rounded flex items-center justify-center px-1.5 py-0.5">
-                <p className="text-[#129E54] text-[11px]">Free Shipping</p>
+                <p className="text-[#129E54] text-[12px]">Free Shipping</p>
               </div>
               <ChevronRight className="text-gray-300" sx={{ fontSize: 20 }} />
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 mb-4 shadow-sm">
+            <div className="flex justify-between items-center mb-4">
+              <p className="font-medium text-[15px]">Payment Methods</p>
+              <div className="flex items-center">
+                <p className="text-[13px] text-gray-500">View All</p>
+                <ChevronRight className="text-gray-300" sx={{ fontSize: 18 }} />
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center py-2 border-b border-gray-100 pb-4">
+              <div className="flex gap-3 items-center">
+                <div className="bg-[#EE4D2D] rounded-full w-6 h-6 flex items-center justify-center text-white">
+                  <ArrangeHorizontal size={14} variant="Outline" />
+                </div>
+                <div>
+                  <p className="font-medium text-[14px]">Bank Transfer</p>
+                  <p className="text-[12px] text-gray-400">Bank ABC</p>
+                </div>
+              </div>
+              <CheckCircle sx={{ color: '#EE4D2D', fontSize: 20 }} />
+            </div>
+
+            <div className="py-2 pt-4">
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex gap-3 items-center">
+                  <EmptyWallet className="text-[#EE4D2D]" size={24} variant="Outline" />
+                  <div>
+                    <p className="font-medium text-[14px]">SPayLater</p>
+                    <p className="text-[12px] text-gray-500">Activate now to get 50K Discount</p>
+                  </div>
+                </div>
+                <button className="border border-[#EE4D2D] text-[#EE4D2D] px-2 py-0.5 rounded text-[12px]">Activate</button>
+              </div>
+              
+              <div className="ml-9 bg-[#f0f0f0] rounded-lg p-2.5 max-w-[180px]">
+                <div className="flex gap-2 text-[11px] mb-1.5 items-center">
+                  <p className="text-gray-500">Rp15.080</p>
+                  <p className="text-gray-400">x1 mth</p>
+                </div>
+                <div className="flex flex-col gap-1.5 items-start">
+                  <div className="border border-[#EE4D2D] bg-[#FFF5F3] text-[#EE4D2D] px-1.5 py-0.5 rounded text-[10px]">Up to 50K off</div>
+                  <div className="border border-[#EE4D2D] bg-[#FFF5F3] text-[#EE4D2D] px-1.5 py-0.5 rounded text-[10px]">0% Interest</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-4 shadow-sm">
+            <p className="font-medium text-[15px] mb-4">Payment Details</p>
+            
+            <div className="flex flex-col gap-2.5 text-[13px] text-gray-600 mb-3">
+              <div className="flex justify-between">
+                <p>Merchandise Subtotal</p>
+                <p>Rp199.920</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Shipping Subtotal</p>
+                <p>Rp15.000</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Buyer Service Fee</p>
+                <p>Rp2.000</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Shipping Discount Subtotal</p>
+                <p className="text-[#EE4D2D]">-Rp15.000</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Voucher Discount</p>
+                <p className="text-[#EE4D2D]">-Rp2.000</p>
+              </div>
+            </div>
+            
+            <div className="border-t border-gray-100 pt-3 mt-1 flex justify-between items-center">
+              <p className="font-medium text-[14px]">Total Payment</p>
+              <p className="font-medium text-[15px]">Rp199.920</p>
             </div>
           </div>
         </div>
 
         <div
           className="
-          fixed bottom-0 left-1/2 -translate-x-1/2
-          w-full max-w-105
+          fixed bottom-0 left-1/2 -translate-x-1/2 z-50
+          w-full max-w-[450px]
           bg-white
           pb-[env(safe-area-inset-bottom)]
           border-t
