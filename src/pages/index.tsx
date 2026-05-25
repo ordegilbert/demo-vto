@@ -8,8 +8,8 @@ const poppins = Poppins({
 
 export default function OpeningPage() {
   return (
-    <div className={`flex min-h-screen text-sm bg-zinc-50 justify-center ${poppins.className}`}>
-      <main className="flex flex-col min-h-screen w-full max-w-[450px] bg-branddef px-8 py-16 text-black relative">
+    <div className={`flex min-h-[100dvh] text-sm bg-zinc-50 justify-center ${poppins.className}`}>
+      <main className="flex flex-col min-h-[100dvh] w-full max-w-[450px] bg-branddef px-8 py-16 text-black relative">
         <h1 className="text-3xl font-bold text-center mt-12 mb-12" style={{ letterSpacing: '0.05em' }}>
           WELCOME!
         </h1>

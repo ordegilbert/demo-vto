@@ -60,7 +60,7 @@ function CameraOverlay({ onCapture }: { onCapture: (src: string) => void }) {
       </div>
 
       <div className="flex-1 flex items-center justify-center">
-        <CameraOverlaySvg className="w-100 h-160 text-sec" />
+        <CameraOverlaySvg className="w-3/4 max-w-[300px] h-auto text-sec" />
       </div>
 
       <div className="p-6 flex justify-center">
@@ -208,7 +208,7 @@ export default function TryOnPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-white pb-28">
+      <div className="min-h-[100dvh] bg-white pb-28">
         {mode === "camera" && <CameraOverlay onCapture={handleCapture} />}
 
         {mode === "tryon" && (
@@ -221,7 +221,7 @@ export default function TryOnPage() {
                 <p className="ml-2 text-xl font-semibold">Virtual Try-On</p>
               </button>
             </div>
-            <div className="relative w-full h-136 bg-slate-600 overflow-hidden">
+            <div className="relative w-full aspect-[3/4] max-h-[60vh] bg-slate-600 overflow-hidden">
               <img
                 ref={imgRef}
                 src={imageSrc!}
@@ -240,7 +240,7 @@ export default function TryOnPage() {
                 onPointerCancel={endDraw}
               />
 
-              <div className="absolute flex flex-col h-136 inset-0 z-20 pointer-events-none justify-between ">
+              <div className="absolute flex flex-col h-full inset-0 z-20 pointer-events-none justify-between ">
                 <div className="w-full flex justify-between p-4 pointer-events-auto"></div>
 
                 <div className="w-full flex justify-between p-4 gap-2 pointer-events-auto text-black">

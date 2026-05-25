@@ -41,7 +41,7 @@ body {
 }
 
 .app-bg {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   background: #f0f0f0;
@@ -50,7 +50,7 @@ body {
 .mobile-frame {
   width: 100%;
   max-width: 450px;     
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #ffffff;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
 }

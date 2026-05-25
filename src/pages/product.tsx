@@ -19,10 +19,10 @@ export default function Home() {
   const [cartPopupOpen, setCartPopupOpen] = useState(false);
 
   return (
-    <div className={`flex min-h-screen bg-zinc-50 font-sans text-sm`}>
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center bg-white sm:items-start">
+    <div className={`flex min-h-[100dvh] bg-zinc-50 font-sans text-sm`}>
+      <main className="flex min-h-[100dvh] w-full max-w-3xl flex-col items-center bg-white sm:items-start">
         <div className="flex-1 overflow-y-auto pb-[calc(5rem+env(safe-area-inset-bottom))]">
-          <div className="relative w-full h-112 bg-slate-600 overflow-hidden">
+          <div className="relative w-full aspect-[4/5] max-h-[60vh] bg-slate-600 overflow-hidden">
             <Image
               src={`/images/${currImage}`}
               alt=""
@@ -31,7 +31,7 @@ export default function Home() {
               priority
             />
 
-            <div className="absolute flex flex-col h-112 inset-0 justify-between">
+            <div className="absolute flex flex-col h-full inset-0 justify-between">
               <div className="w-full flex justify-between p-4 mt-4">
                 <button className="w-8 h-8 bg-black/40 text-white px-1 py-1 rounded-lg flex justify-center items-center">
                   <ArrowLeft size={16}/>

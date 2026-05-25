@@ -28,7 +28,7 @@ const shades: Shade[] = [
 
 export default function CheckoutPage() {
   return (
-    <div className="min-h-screen bg-white pb-28 p-4 text-sm">
+    <div className="min-h-[100dvh] bg-white pb-28 p-4 text-sm">
       <div className="h-12 flex justify-between items-center text-center mt-6">
         <div className="flex h-full gap-4">
           <Link href="/product" className="mt-1">

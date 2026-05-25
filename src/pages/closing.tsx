@@ -7,8 +7,8 @@ const poppins = Poppins({
 
 export default function ClosingPage() {
   return (
-    <div className={`flex min-h-screen text-sm bg-zinc-50 justify-center ${poppins.className}`}>
-      <main className="flex flex-col min-h-screen w-full max-w-[450px] bg-branddef px-8 py-16 text-black relative items-center justify-center">
+    <div className={`flex min-h-[100dvh] text-sm bg-zinc-50 justify-center ${poppins.className}`}>
+      <main className="flex flex-col min-h-[100dvh] w-full max-w-[450px] bg-branddef px-8 py-16 text-black relative items-center justify-center">
         <h1 className="text-3xl font-bold text-center mb-8" style={{ letterSpacing: '0.05em' }}>
           Thank You!
         </h1>

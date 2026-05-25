@@ -85,7 +85,7 @@ const Cart: CartType[] = [
 
 export default function CartPage() {
   return (
-    <div className="min-h-screen bg-white pb-28 p-8 text-sm">
+    <div className="min-h-[100dvh] bg-white pb-28 p-8 text-sm">
       <div className="h-12 flex justify-between mt-6">
         <div className="flex h-full gap-1">
           <Link href="/product" className="mt-1">
